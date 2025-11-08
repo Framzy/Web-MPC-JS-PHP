@@ -1,0 +1,43 @@
+*,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow-x: hidden;
+    transition: all .8s;
+
+}
+
+:root {
+    --primary-color: #121212;
+}
+
+.main-container {
+    height: auto;
+    background-color: var(--primary-color);
+}
+
+.container-section .home-page {
+    display: block;
+}
+
+.container-section .search-page {
+    display: none;
+}
+
+.container-section .save-page {
+    display: none;
+}
+
+.container-section>div {
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.container-section>div.active {
+    opacity: 1;
+    visibility: visible;
+}

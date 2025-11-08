@@ -1,0 +1,177 @@
+// auth
+
+<?php
+session_start();
+require 'config.php';
+
+$response = [];
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $data = json_decode(file_get_contents('php://input'), true);
+
+    $username = $data['username'] ?? '';
+    $password = $data['password'] ?? '';
+
+    if (empty($username) || empty($password)) {
+        $response['error'] = 'Username and password are required.';
+        http_response_code(400);
+        echo json_encode($response);
+        exit;
+    }
+
+    //PERUBAHAN
+
+        $stmt = $conn->prepare("SELECT id_akun, password FROM akun WHERE username = ?");
+        if (!$stmt) {
+            $response['error'] = 'Database error: ' . $conn->error;
+            http_response_code(500);
+            echo json_encode($response);
+            exit;
+        }
+
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $stmt->store_result(); 
+
+        if ($stmt->num_rows > 0) {
+            $stmt->bind_result($userId, $hashedPassword);
+            $stmt->fetch();
+
+            if (password_verify($password, $hashedPassword)) {
+                session_regenerate_id();
+                $_SESSION['user_id'] = $userId;
+                $response['success'] = true;
+                $response['message'] = 'Login successful!';
+                http_response_code(200);
+            } else {
+                $response['error'] = 'Invalid password.';
+                http_response_code(401);
+            }
+
+        } else {
+            $response['error'] = 'Invalid username or password.';
+            http_response_code(401);
+        }
+
+        $stmt->close();
+        $conn->close();
+
+    //END
+
+} else {
+    $response['error'] = 'Invalid request method.';
+    http_response_code(405);
+}
+
+header('Content-Type: application/json');
+echo json_encode($response);
+?>
+
+
+// regist
+
+<?php
+session_start();
+require 'config.php';
+
+$response = [];
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $data = json_decode(file_get_contents('php://input'), true);
+
+    $username = $data['newUsername'] ?? '';
+    $password = $data['newPassword'] ?? '';
+
+    if (empty($username) || empty($password)) {
+        $response['error'] = 'Username and password are required.';
+        http_response_code(400);
+        echo json_encode($response);
+        exit;
+    }
+
+    // PERUBAHAN
+
+        $stmt = $conn->prepare("SELECT id_akun FROM akun WHERE username = ?");
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $stmt->store_result(); 
+        
+        if ($stmt->num_rows > 0) {
+            $response['error'] = 'Username already exists.';
+            http_response_code(400);
+        } else {
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+            $insertStmt = $conn->prepare("INSERT INTO akun (username, password) VALUES (?, ?)");
+            $insertStmt->bind_param("ss", $username, $hashedPassword);
+
+            if ($insertStmt->execute()) {
+                $response['success'] = true;
+                $response['message'] = 'Account created successfully!';
+                http_response_code(201);
+            } else {
+                $response['error'] = 'Error creating account.';
+                http_response_code(500);
+            }
+            
+            $insertStmt->close();
+        }
+
+        $stmt->close();
+        $conn->close();
+
+    //END
+
+} else {
+    $response['error'] = 'Invalid request method.';
+    http_response_code(405);
+}
+
+header('Content-Type: application/json');
+echo json_encode($response);
+?>
+
+
+// regist awal
+<?php
+session_start();
+require 'config.php';
+
+$response = [];
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $data = json_decode(file_get_contents('php://input'), true);
+    
+    $username = $data['newUsername'];
+    $password = $data['newPassword']; // Password disimpan tanpa hashing
+    
+    // Vulnerable to SQL Injection karena tidak menggunakan prepared statement
+    $check_query = "SELECT id_akun FROM akun WHERE username = '$username'";
+    $result = mysqli_query($conn, $check_query);
+    
+    if (mysqli_num_rows($result) > 0) {
+        $response['error'] = 'Username already exists.';
+        http_response_code(400);
+    } else {
+        // Insert tanpa prepared statement
+        $insert_query = "INSERT INTO akun (username, password) VALUES ('$username', '$password')";
+        
+        if (mysqli_query($conn, $insert_query)) {
+            $response['success'] = true;
+            $response['message'] = 'Account created successfully!';
+            http_response_code(201);
+        } else {
+            $response['error'] = 'Error creating account: ' . mysqli_error($conn);
+            http_response_code(500);
+        }
+    }
+    
+    mysqli_close($conn);
+} else {
+    $response['error'] = 'Invalid request method.';
+    http_response_code(405);
+}
+
+header('Content-Type: application/json');
+echo json_encode($response);
+?>

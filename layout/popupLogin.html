@@ -1,0 +1,126 @@
+<div id="loginPopup" class="popup-login">
+    <div class="popupContainer" id="idPopupContainer">
+        <div class="loginPoster">
+            <img src="src/logo/mpc_logo.png" alt="">
+            <h1>Jelajahi <br>Semua Film !</h1>
+        </div>
+
+        <div class="loginPopup-content" id="loginPopupContent">
+            <span class="popupLogin-close">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm" action="" method="post">
+                <div class="loginForm-grup">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" autocomplete="off" name="username" placeholder="Username" required>
+                    <label for="password">Password</label>
+                    <div class="login-passwordGrup">
+                        <input type="password" id="password" autocomplete="off" name="password" placeholder="Password"
+                            required>
+                        <i id="togglePassword" class="fa-regular fa-eye-slash"></i>
+                    </div>
+                    <div class="loginForm-grup-info">
+                        <p id="idErrorLoginInfo"></p>
+                    </div>
+                    <button type="button" id="loginButton">Login</button>
+                </div>
+            </form>
+            <div class="registSection">
+                <div class="registSection-content">
+                    <p>belum punya akun?</p>
+                    <p id="registFormButton">klik disini.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="registPopup-content" id="registPopupContent">
+            <span class="popupRegist-close">&times;</span>
+            <h2>Daftar</h2>
+            <form id="registForm" action="" method="post">
+                <div class="registForm-grup">
+                    <label for="newUsername">Username</label>
+                    <div class="registForm-grup-username">
+                        <input type="text" id="newUsername" autocomplete="off" name="newUsername" placeholder="Username"
+                            required>
+                        <p id="idErrorNewUsername">Username sudah ada</p>
+                    </div>
+                    <label for="newPassword">Password</label>
+                    <div class="registForm-grup-newpassword">
+                        <input type="text" id="newPassword" autocomplete="off" name="newPassword" placeholder="Password"
+                            required>
+                        <p id="idErrorNewPassword">minimal 8 karakter</p>
+                    </div>
+                    <label for="newRePassword">Re-Password</label>
+                    <input type="text" id="newRePassword" autocomplete="off" name="newRePassword"
+                        placeholder="Re-Password" required>
+                    <button type="button" id="registButton">Daftar</button>
+                </div>
+            </form>
+            <div class="registSection">
+                <div class="registSection-content">
+                    <p>sudah punya akun?</p>
+                    <p id="loginFormButton">klik disini.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="changePopup-content" id="changePopupContent">
+            <span class="popupChange-close">&times;</span>
+            <h2>Ubah Kata Sandi</h2>
+
+            <form id="changeForm" action="" method="post">
+                <div class="changeForm-grup">
+
+                    <label for="changeOldPassword">Password Lama</label>
+                    <div class="changeForm-grup-oldPassword">
+                        <input type="text" id="changeOldPassword" autocomplete="off" name="changeOldPassword"
+                            placeholder="Password Lama" required>
+                        <p id="idErrorChangeOldPassword">Password lama salah</p>
+                    </div>
+
+                    <label for="changePassword">Password Baru</label>
+                    <div class="changeForm-grup-newpassword">
+                        <input type="text" id="changePassword" autocomplete="off" name="changePassword"
+                            placeholder="Password Baru" required>
+                        <p id="idErrorChangePassword">minimal 8 karakter</p>
+                    </div>
+
+                    <label for="changeRePassword">Re-Password Baru</label>
+                    <input type="text" id="changeRePassword" autocomplete="off" name="changeRePassword"
+                        placeholder="Re-Password Baru" required>
+
+                    <button type="button" id="changeButton">Ubah Kata Sandi</button>
+                    <div class="changeForm-grup-info">
+                        <span id="idInfoChangePassword">Password berhasil diubah</span>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+    <div class="popupLogin-info-berhasil" id="idPopupLoginInfoBerhasil">
+        <i class="fa-solid fa-check fa-2xl"></i>
+        <p>login Berhasil</p>
+    </div>
+    <div class="popupRegist-info-berhasil" id="idPopupRegistInfoBerhasil">
+        <i class="fa-solid fa-check fa-2xl"></i>
+        <p>Registrasi Berhasil</p>
+    </div>
+</div>
+
+
+<div id="logoutPopup" class="popup-logout">
+    <div class="popupLogoutContainer">
+        <div class="popupLogout-content" id="idPopupLogoutContent">
+            <p>Yakin Akan Logout?</p>
+            <button class="btn btn-primary" type="button" id="cancelLogout">Batal</button>
+            <button class="btn btn-primary" type="button" id="buttonLogout">Logout</button>
+        </div>
+
+        <div class="popupLogout-info-berhasil" id="idPopupLogoutInfoBerhasil">
+            <i class="fa-solid fa-check fa-2xl"></i>
+            <p>Logout Berhasil</p>
+        </div>
+    </div>
+</div>

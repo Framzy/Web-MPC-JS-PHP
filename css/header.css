@@ -1,0 +1,345 @@
+.header-section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+}
+
+.header-section .header-navbar {
+    background-color: var(--primary-color);
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    width: 85vw;
+    position: relative;
+}
+
+.header-navbar .homePage-Icon {
+    width: 80px;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.header-navbar .homePage-Icon img {
+    width: 80px;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.header-navbar #searchForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#searchForm .inputan {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+#searchForm .inputan input {
+    height: inherit;
+    padding: 5px 8px;
+    border-radius: 5px;
+    color: #ffffff;
+    border: 2px solid #D1D5DB;
+    outline: none;
+    background-color: #121212;
+}
+
+#searchForm .inputan input::placeholder {
+    color: #ffffff;
+}
+
+#searchForm .inputan input:focus {
+    outline: none;
+}
+
+#searchForm .dropdown {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+#searchForm .dropdown-center .btn {
+    background-color: #4F46E5;
+    height: inherit;
+    width: 160px;
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+#searchForm .dropdown-center .dropdown-menu {
+    background-color: #4F46E5;
+    text-align: center;
+}
+
+#searchForm .dropdown-center .dropdown-item {
+    color: #ffffff;
+}
+
+#searchForm .dropdown-center .dropdown-item:hover {
+    color: #000000;
+    font-weight: 600;
+    background-color: #C7D2FE;
+}
+
+.header-navbar .header-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-right .menu-toggle {
+    display: none;
+    width: 40px;
+    height: 28px;
+    position: relative;
+}
+
+.header-right .menu-toggle i {
+    width: 40px;
+    height: 28px;
+    right: -10px;
+    top: 8px;
+    opacity: 1;
+    cursor: pointer;
+    z-index: 1;
+    position: absolute;
+    color: #FFFFFF;
+}
+
+.header-right .menu-toggle input {
+    width: 40px;
+    height: 28px;
+    right: -10px;
+    top: 8px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+    position: absolute;
+}
+
+.header-section .btnSavedPage {
+    background-color: transparent;
+    border-color: transparent;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 140px;
+}
+
+.header-section .btnSavedPage div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.icon-wrapper::before {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    right: 245px;
+    width: 3px;
+    height: 70%;
+    background-color: #222121;
+    z-index: 2;
+}
+
+.btnSavedPage .icon-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.btnSavedPage .icon-wrapper img {
+    width: 20px;
+}
+
+
+.header-section .btnSavedPage:active {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.header-section .btnLogin {
+    width: 100px;
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+}
+
+.header-section .btnLogin:active {
+    background-color: transparent;
+    border: none;
+}
+
+#popupLoginButton,
+#popupLogoutButton {
+    display: none;
+}
+
+.profile {
+    background-color: transparent !important;
+    border: transparent;
+}
+
+.profileContent {
+    background-color: #121212;
+    border-radius: 0px;
+}
+
+.profileContent button {
+    border: 1px solid #222121;
+    color: #FFFFFF;
+}
+
+.profileContent button:hover {
+    background-color: #C7D2FE;
+    color: #000000;
+}
+
+/* responsive */
+
+/* general */
+@media screen and (max-width:1340px) {
+    .header-section .header-navbar {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .header-navbar .homePage-Icon {
+        width: 50%;
+    }
+
+    .header-navbar .header-right {
+        width: 50%;
+        justify-content: flex-end;
+    }
+
+    .header-navbar .form-pencarian {
+        position: absolute;
+        top: 70px;
+        width: 100vw;
+        min-height: 100px;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 2;
+        transform: translateX(-1000px);
+        transition: all 1s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        padding: 20px 0;
+    }
+
+    .header-navbar .form-pencarian.slide {
+        z-index: 2;
+        opacity: 1;
+        transform: translateX(0px);
+    }
+
+    .header-right .menu-toggle {
+        display: flex
+    }
+
+    .menu-toggle::before {
+        content: "";
+        position: absolute;
+        bottom: -12px;
+        right: -10px;
+        width: 2px;
+        height: 180%;
+        background-color: #222121;
+        z-index: 2;
+    }
+
+    .icon-wrapper::before {
+        display: none;
+    }
+}
+
+/* tablet */
+@media screen and (max-width:876px) {
+    .header-section .header-navbar {
+        width: 95vw;
+    }
+
+    .header-section .btnSavedPage {
+        width: 40px;
+    }
+
+    .header-section .btnSavedPage div {
+        display: none;
+    }
+
+    .header-navbar .form-pencarian #searchForm {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .menu-toggle::before {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        right: 0px;
+        width: 2.5px;
+        height: 180%;
+        background-color: #222121;
+        z-index: 2;
+    }
+
+    .icon-wrapper::before {
+        display: none;
+    }
+}
+
+
+/* mobile */
+@media screen and (max-width:576px) {
+    .header-navbar .form-pencarian #searchForm {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .form-pencarian #searchForm div:nth-child(1) {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .form-pencarian #searchForm div:nth-child(2) {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .header-section .btnLogin {
+        width: 70px;
+    }
+
+    .btnSavedPage::before {
+        display: none;
+    }
+
+    .header-navbar .profile {
+        width: 100px;
+        box-sizing: border-box;
+        margin-right: -10px;
+    }
+}

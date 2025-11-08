@@ -1,0 +1,235 @@
+.swiper {
+    height: 90vh;
+    background-color: #000;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* .swiper-slide.slide1 {
+    background-image: url('../../src/image/slide/slide1.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #000;
+}
+
+.swiper-slide.slide2 {
+    background-image: url('../../src/image/slide/slide2.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #000;
+}
+
+*/
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #14181C;
+    color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide main {
+    background: linear-gradient(to right, rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0.15) 90%);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero {
+    display: flex;
+    padding: 1rem;
+    position: relative;
+    height: 100%;
+    width: 85vw;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero .hero-content {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+    width: 50%;
+}
+
+.hero h1 {
+    font-size: clamp(2.8rem, 0.6505rem + 0.9709vw, 3rem);
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: clamp(.8rem, 0.6505rem + 0.9709vw, 1rem);
+}
+
+.hero-navigation {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+}
+
+
+#toggle-text {
+    color: #A5B4FC;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.content-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+}
+
+.content-info img {
+    display: block;
+    height: 20px;
+}
+
+.content-info p {
+    text-align: center;
+    margin: auto;
+    font-size: 14px;
+}
+
+.slideSaveButton {
+    width: 140px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.slideSaveButton p {
+    text-align: center;
+    margin: auto;
+    color: #8D8C8D;
+    font-weight: 600;
+}
+
+.grup-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+.button-prev,
+.button-next {
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(232, 232, 232, 0.263);
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+
+/* recomendation */
+.recommendation-content {
+    background-color: #14181C;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.recommendation-section {
+    width: 85vw;
+    height: auto;
+    margin-top: 50px;
+}
+
+.recommendation-section h2 {
+    font-size: 1.8rem;
+    position: relative;
+    margin: 0px auto;
+    max-width: 100%;
+    padding-left: calc(34px + 2vw);
+    color: #ffffff;
+}
+
+.recommendation-section h2::before {
+    position: absolute;
+    content: '';
+    left: calc(14px + 2vw);
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    border-left: 8px solid #4F46E5;
+}
+
+.container-recommendation {
+    background-color: #14181C;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 40px 20px 20px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width:576px) {
+    .hero .hero-content {
+        width: 80%;
+    }
+
+    .container-recommendation {
+        background-color: #14181C;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0;
+        padding: 40px 0;
+        margin: 0 auto;
+    }
+
+}
+
+
+
+
+
+/* .container-recommendation {
+    background-color: #14181C;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 40px 20px 20px;
+    margin: 0 auto;
+    place-items: center;
+    width: 100%;
+} */
+
+/* @media (max-width: 1200px) {
+    .container-recommendation {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 800px) {
+    .container-recommendation {
+        grid-template-columns: repeat(2, 1fr);
+    }
+} */

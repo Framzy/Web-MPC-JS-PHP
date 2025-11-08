@@ -1,0 +1,621 @@
+.popup-login,
+.popup-logout {
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    z-index: 4;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: opacity .28s ease-in, visibility .28s ease-in;
+}
+
+/* Kelas untuk menampilkan popup */
+.popup-login.show,
+.popup-logout.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.popupContainer {
+    width: 800px;
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginPoster {
+    background: url('../src/poster/loginPoster.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 50%;
+    height: 100%;
+    position: relative;
+}
+
+.loginPoster {
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+    padding: 30px 20px;
+    gap: 10px;
+}
+
+.loginPoster img {
+    width: 100px;
+}
+
+.loginPoster h1 {
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.loginPoster::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 10px;
+    background-color: #4F46E5;
+}
+
+/* login section */
+.loginPopup-content {
+    background-color: #14181C;
+    padding: 10px;
+    width: 50%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.loginPopup-content::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 100%;
+    height: 10px;
+    background-color: #4F46E5;
+}
+
+.loginPopup-content h2 {
+    height: 15%;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 50px;
+    color: #ffffff;
+}
+
+.registSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    width: 100%;
+    height: 40px;
+}
+
+.registSection-content {
+    display: flex;
+    align-items: center;
+}
+
+.registSection-content p {
+    margin: 0 3px;
+}
+
+.loginPopup-content .registSection #registFormButton {
+    color: #4F46E5;
+    cursor: pointer;
+}
+
+.loginPopup-content .registSection #registFormButton:hover {
+    color: #8884dc;
+}
+
+/* Login Form */
+
+#loginForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    height: 70%;
+}
+
+#loginForm {
+    .loginForm-grup {
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        flex-direction: column;
+        width: calc(140px + 10vw);
+
+        input {
+            background-color: transparent;
+            border: 2px solid #D1D5DB;
+            padding: 10px;
+            width: 100%;
+            color: #ffffff;
+            margin-bottom: 10px;
+
+            &:focus {
+                color: #ffffff;
+            }
+        }
+
+        label {
+            color: #A5B4FC;
+            width: 100%;
+            margin: 5px auto 2px auto;
+        }
+
+        button {
+            background-color: #4F46E5;
+            width: calc(60px + 5vw);
+            color: #ffffff;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            margin: 50px auto 20px auto;
+        }
+    }
+
+    .login-passwordGrup {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        width: 100%;
+        position: relative;
+
+        i {
+            position: absolute;
+            right: -25px;
+            top: 15px;
+            color: #ffffff;
+            cursor: pointer;
+        }
+    }
+
+    .loginForm-grup-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        width: 100%;
+
+        p {
+            font-size: 9px;
+            color: #be2121;
+        }
+    }
+}
+
+/* regist section */
+.registPopup-content {
+    background-color: #14181C;
+    padding: 10px;
+    width: 50%;
+    height: 100%;
+    position: relative;
+    display: none;
+    flex-direction: column;
+}
+
+.registPopup-content::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 100%;
+    height: 10px;
+    background-color: #4F46E5;
+}
+
+.registPopup-content h2 {
+    height: 15%;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 50px;
+    color: #ffffff;
+}
+
+.registPopup-content .registSection #loginFormButton {
+    color: #4F46E5;
+    cursor: pointer;
+
+}
+
+.registPopup-content .registSection #loginFormButton:hover {
+    color: #8884dc;
+}
+
+/* regist form */
+#registForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    height: 70%;
+}
+
+#registForm {
+    .registForm-grup {
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        flex-direction: column;
+        width: calc(140px + 10vw);
+
+        .registForm-grup-username {
+            width: 100%;
+            height: 65px;
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+
+            p {
+                display: none;
+                color: #be2121;
+                font-size: 11px;
+            }
+        }
+
+        .registForm-grup-newpassword {
+            width: 100%;
+            height: 65px;
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+
+            p {
+                display: none;
+                color: #be2121;
+                font-size: 11px;
+            }
+        }
+
+        input {
+            background-color: transparent;
+            border: 2px solid #d1d5db;
+            padding: calc(5px + .3vw);
+            width: 100%;
+            color: #ffffff;
+
+            &:focus {
+                color: #ffffff;
+            }
+        }
+
+        label {
+            color: #a5b4fc;
+            width: 100%;
+            margin: 0px auto 2px auto;
+        }
+
+        button {
+            background-color: #4f46e5;
+            width: calc(60px + 5vw);
+            color: #ffffff;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            margin: 20px auto 0;
+        }
+    }
+}
+
+/* Update Section */
+.changePopup-content {
+    background-color: #14181C;
+    padding: 10px;
+    width: 50%;
+    height: 100%;
+    position: relative;
+    display: none;
+    flex-direction: column;
+    transition: all .8s;
+}
+
+.changePopup-content::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 100%;
+    height: 10px;
+    background-color: #4F46E5;
+}
+
+.changePopup-content h2 {
+    height: 15%;
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 50px;
+    font-size: 30px;
+    color: #ffffff;
+    box-sizing: border-box;
+}
+
+#changeForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    height: 60%;
+}
+
+#changeForm {
+    .changeForm-grup {
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        flex-direction: column;
+        width: calc(140px + 10vw);
+
+        .changeForm-grup-oldPassword {
+            width: 100%;
+            height: 65px;
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+
+            p {
+                display: none;
+                color: #be2121;
+                font-size: 11px;
+            }
+        }
+
+        .changeForm-grup-newpassword {
+            width: 100%;
+            height: 65px;
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+
+            p {
+                display: none;
+                color: #be2121;
+                font-size: 11px;
+            }
+        }
+
+        input {
+            background-color: transparent;
+            border: 2px solid #d1d5db;
+            padding: calc(5px + .3vw);
+            width: 100%;
+            color: #ffffff;
+
+            &:focus {
+                color: #ffffff;
+            }
+        }
+
+        label {
+            color: #a5b4fc;
+            width: 100%;
+            margin: 0px auto 2px auto;
+        }
+
+        button {
+            background-color: #4f46e5;
+            width: calc(100px + 5vw);
+            color: #ffffff;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            margin: 40px auto 0;
+        }
+
+        .changeForm-grup-info {
+            width: 100%;
+            height: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+
+            span {
+                display: none;
+                color: #be2121;
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+/* Responsive */
+@media screen and (max-width:876px) {
+    .popupContainer .loginPoster {
+        display: none;
+    }
+
+    .popupContainer .loginPopup-content {
+        width: calc(280px + 10vw);
+        height: 460px;
+    }
+
+    .popupContainer .registPopup-content {
+        width: calc(280px + 10vw);
+        height: 460px;
+    }
+
+    .popupContainer .changePopup-content {
+        width: calc(280px + 10vw);
+        height: 460px;
+        box-sizing: border-box;
+    }
+
+
+    .loginPopup-content .loginForm-grup {
+        margin-top: 50px;
+        gap: 20px;
+        box-sizing: border-box;
+    }
+
+    .loginPopup-content .loginForm-grup label {
+        display: none;
+    }
+
+    .loginPopup-content .loginForm-grup p {
+        font-size: 9px;
+    }
+
+    .loginPopup-content .loginForm-grup #loginButton {
+        margin-top: -10px;
+    }
+
+    .registPopup-content .registForm-grup {
+        margin-top: 10px;
+        gap: 10px;
+        box-sizing: border-box;
+    }
+
+    .registPopup-content .registForm-grup label {
+        display: none;
+    }
+
+    .registPopup-content .registForm-grup p {
+        font-size: 9px;
+    }
+
+    .registPopup-content .registForm-grup #registButton {
+        margin-top: 20px;
+    }
+
+    /* change */
+    .changePopup-content h2 {
+        margin: 20px auto 40px auto;
+    }
+
+    .changePopup-content .changeForm-grup {
+        margin-top: 40px;
+        gap: 10px;
+        box-sizing: border-box;
+    }
+
+    .changePopup-content .changeForm-grup label {
+        display: none;
+    }
+
+    .changePopup-content .changeForm-grup #changeButton {
+        margin-top: 30px;
+        width: 180px;
+        margin-bottom: -20px;
+    }
+
+    .changePopup-content .changeForm-grup #idInfoChangePassword {
+        font-size: 12px;
+    }
+}
+
+
+.popupLogin-close,
+.popupRegist-close,
+.popupChange-close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 10px 20px 0 0;
+}
+
+.popupLogin-close:hover,
+.popupLogin-close:focus,
+.popupRegist-close:hover,
+.popupRegist-close:focus,
+.popupChange-close:hover,
+.popupChange-close:focus {
+    color: #4F46E5;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Popup Logout */
+
+.popupLogoutContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popupLogout-content {
+    display: grid;
+    grid-template-areas:
+        "message message"
+        "cancelLogout buttonLogout";
+    gap: 20px;
+    padding: 20px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.popupLogout-content p {
+    grid-area: message;
+    font-weight: 500;
+    margin-bottom: -5px;
+}
+
+.popupLogout-content #cancelLogout {
+    grid-area: cancelLogout;
+    background-color: #4F46E5;
+    border: #aaa;
+}
+
+.popupLogout-content #buttonLogout {
+    grid-area: buttonLogout;
+    background-color: #4F46E5;
+    border: #aaa;
+
+}
+
+.popupLogin-info-berhasil,
+.popupRegist-info-berhasil,
+.popupLogout-info-berhasil {
+    background-color: aliceblue;
+    display: none;
+    flex-direction: column;
+    border-radius: 10px;
+    text-align: center;
+    gap: 30px;
+    padding: 40px 30px 20px 30px;
+    transition: all .8s;
+
+    p {
+        width: 160px;
+        font-weight: 500;
+        font-size: 18px;
+        color: #4F46E5;
+    }
+
+    i {
+        color: #4F46E5;
+    }
+}

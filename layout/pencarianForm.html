@@ -1,0 +1,49 @@
+<form id="searchForm" action="/search.php" method="post">
+    <div class="inputan" id="searchDaftarFilm">
+        <input id="search-general" type="text" name="search" placeholder="Cari Film..." aria-label="Search"
+            autocomplete="off">
+        <input id="search-release" type="text" name="search" placeholder="Rilis film..." aria-label="Search"
+            autocomplete="off">
+    </div>
+
+    <div class="dropdown">
+        <div class="dropdown-center Genre">
+            <button class="btn btn-secondary Genre" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Genre
+                <i class="fa-solid fa-caret-down"></i>
+            </button>
+            <ul class="dropdown-menu Genre ">
+                <li><button class="dropdown-item genre" type="button" data-genre="Action">Action</button></li>
+                <li><button class="dropdown-item genre" type="button" data-genre="Adventure">Adventure</button></li>
+                <li><button class="dropdown-item genre" type="button" data-genre="Animation">Animation</button></li>
+                <li><button class="dropdown-item genre" type="button" data-genre="Biography">Biography</button></li>
+                <li><button class="dropdown-item genre" type="button" data-genre="Comedy">Comedy</button></li>
+                <li><button class="dropdown-item genre" type="button" data-genre="Crime">Crime</button></li>
+                <li><button class="dropdown-item genre" type="button" data-genre="Drama">Drama</button></li>
+                <li><button class="dropdown-item genre" type="button" data-genre="Family">Family</button></li>
+                <li><button class="dropdown-item genre" type="button" data-genre="Fantasy">Fantasy</button></li>
+                <li><button class="dropdown-item genre" type="button" data-genre="History">History</button></li>
+                <li><button class="dropdown-item genre" type="button" data-genre="Horror">Horror</button></li>
+                <li><button class="dropdown-item genre" type="button" data-genre="Music">Music</button></li>
+                <li><button class="dropdown-item genre" type="button" data-genre="Mystery">Mystery</button></li>
+                <li><button class="dropdown-item genre" type="button" data-genre="Romance">Romance</button></li>
+                <li><button class="dropdown-item genre" type="button" data-genre="Sci-Fi">Sci-Fi</button></li>
+                <li><button class="dropdown-item genre" type="button" data-genre="Thriller">Thriller</button></li>
+                <li><button class="dropdown-item genre" type="button" data-genre="War">War</button></li>
+                <li><button class="dropdown-item genre" type="button" data-genre="Western">Western</button></li>
+            </ul>
+        </div>
+        <div class="dropdown-center Urutkan">
+            <button class="btn btn-secondary Urutkan" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Urutkan
+                <i class="fa-solid fa-caret-down"></i>
+            </button>
+            <ul class="dropdown-menu Urutkan">
+                <li><button class="dropdown-item sort" type="button" data-sort="tertinggi">Rating
+                        Tertinggi</button></li>
+                <li><button class="dropdown-item sort" type="button" data-sort="terendah">Rating
+                        Terendah</button></li>
+            </ul>
+        </div>
+    </div>
+</form>

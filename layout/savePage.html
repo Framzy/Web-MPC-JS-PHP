@@ -1,0 +1,25 @@
+<div class="savePage-content">
+    <div class="savePage-section">
+        <div class="saveDisplay-information" id="idSaveDisplayInfo">
+            <p>Anda belum menyimpan film!</p>
+            <p class="findMovie-button" id="findMovieButton">Cari Film <i class="fa-solid fa-magnifying-glass"></i> </p>
+        </div>
+        <div class=" dropdown-center UrutanSimpanGrup" id="idUrutanSimpan">
+            <button class="btn btn-secondary btnUrutanSimpan" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Urutkan
+                <i class="fa-solid fa-caret-down"></i>
+            </button>
+            <ul class="dropdown-menu UrutanSimpan">
+                <li><button class="dropdown-item sortSave" type="button" data-sortsave="terbaru">Terbaru</button></li>
+                <li><button class="dropdown-item sortSave" type="button" data-sortsave="terlama">Terlama</button></li>
+            </ul>
+        </div>
+        <div class="container-saveFilm" id="saveFilmContainer">
+        </div>
+        <div class="loadMoreContainer">
+            <button class="btn btn-primary loadMore" type="button" id="loadMoreSaveButton">Lebih
+                Banyak</button>
+        </div>
+    </div>
+</div>
